@@ -162,6 +162,9 @@ BitBucket when a feature, fix, or in this case, assignment is finished.
 
 $ cd src/main/java/com/techelevator
 $ <enter command to display present working directory>
+Techs-MacBook-Air-21:techelevator zgroves$ ls
+Helloworld.java
+
 <type or copy-paste your present working directory here>
 
 
@@ -171,12 +174,18 @@ $ <enter command to display present working directory>
 ----
 
 <type your answer here>
+Relative
 
 
 ----
 12. List all the files and folders, including any dot-files or dot-folders in
     your present working directory.
 ----
+Ls- la
+drwxr-xr-x  3 zgroves  staff   96 May 21 15:35 .
+drwxr-xr-x  3 zgroves  staff   96 May 21 15:35 ..
+-rwxr-xr-x  1 zgroves  staff  141 May 21 15:35 Helloworld.java
+
 
 $ <enter command to list all files and folders including dot-files and dot-folders>
 <type or copy-paste the result here>
@@ -209,6 +218,8 @@ of the file.
 
 $ <enter command to list all files and folders in order to confirm the renaming of the file>
 <type or copy-paste the result here>
+Techs-MacBook-Air-21:techelevator zgroves$ ls
+Helloworld.java		Helloworld.java.copy
 
 
 ----
@@ -218,16 +229,16 @@ $ <enter command to list all files and folders in order to confirm the renaming 
 
 $ <enter the Git command to display status>
 <type or copy-paste the result here>
-
+Git status
 $ <enter the Git command to "stage" all changes>
 <type or copy-paste the result here>
-
+Git add .
 $ <enter the Git command to save all "staged" changes>
 <type or copy-paste the result here>
 
-$ git push
+Git commit -m "feature completion"
 <type or copy-paste the result here>
-
+Git  push
 
 ----
 16. Delete the backup file, "Helloworld.java.copy" using the remove command.
