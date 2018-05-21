@@ -29,7 +29,7 @@ actual command from other text in Unix documentation.
 2.  What does the ~ (tilde) character in the above command to change directory 
     refer to?
 ----
-
+The ~ takes me to my home directory. So it's essentially making it so you have to write the absolute path for the file you want.
 
 ----
 3.  A good habit to develop, especially while you're developing your skills on 
@@ -38,6 +38,8 @@ actual command from other text in Unix documentation.
 ----
 
 $ pwd
+/Users/zgroves/Development/zacharygroves-java-green-exercises/m1-w1d1-intro-to-tools-exercises/java-helloworld
+
 <type or copy-paste the result here>
 
 The present working directory displayed should match the directory you changed 
@@ -52,6 +54,15 @@ changes directory, and the "pwd" command reflects this.
     directory. Include all dot-files and dot-folders.  Recall the "all" and
     "long format" flags for the "ls" command.
 ----
+Techs-MacBook-Air-21:java-helloworld zgroves$ ls -la
+total 24
+drwxr-xr-x  6 zgroves  staff   192 May 21 15:36 .
+drwxr-xr-x  6 zgroves  staff   192 May 21 15:52 ..
+-rw-r--r--@ 1 zgroves  staff  6148 May 21 15:36 .DS_Store
+drwxr-xr-x  3 zgroves  staff    96 May 21 15:35 database
+-rwxr-xr-x  1 zgroves  staff  1091 May 21 15:35 pom.xml
+drwxr-xr-x  5 zgroves  staff   160 May 21 15:37 src
+
 
 $ ls -la
 <type or copy-paste the result here>
@@ -61,6 +72,7 @@ $ ls -la
 5.  What do the "." and ".." folders displayed in the directory listing in
     Exercise 4 represent?
 ----
+The . references the directory you're already in. The .. references the parent directory.
 
 <type or copy-paste your answer here>
 
@@ -68,6 +80,8 @@ $ ls -la
 6.  What are the names of the files, including any dot-files, displayed in the
     directory listing in Exercise 4?
 ----
+-rwxr-xr-x  1 zgroves  staff  1091 May 21 15:35 pom.xml
+
 
 <type or copy-paste your answer here>
 
@@ -76,6 +90,11 @@ $ ls -la
 7.  What are the names of the folders, including any dot-folders, displayed in 
     the directory listing in Exercise 4?
 ----
+drwxr-xr-x  6 zgroves  staff   192 May 21 15:36 .
+drwxr-xr-x  6 zgroves  staff   192 May 21 15:59 ..
+-rw-r--r--@ 1 zgroves  staff  6148 May 21 15:36 .DS_Store
+drwxr-xr-x  3 zgroves  staff    96 May 21 15:35 database
+drwxr-xr-x  5 zgroves  staff   160 May 21 15:37 src
 
 <type or copy-paste your answer here>
 
