@@ -308,10 +308,22 @@ Don't forget to save the file in Visual Studio Code!
     work so it can be reviewed by an instructor.
 ----
 
-$ <enter the Git command to display status>
+Techs-MacBook-Air-21:m1-w1d1-intro-to-tools-exercises zgroves$ git add .
+Techs-MacBook-Air-21:m1-w1d1-intro-to-tools-exercises zgroves$ git commit -m "I did it"
+[master e12b454] I did it
+ 2 files changed, 25 insertions(+), 15 deletions(-)
+ create mode 100644 m1-w1d1-intro-to-tools-exercises/java-helloworld/docs/readme.txt
+Techs-MacBook-Air-21:m1-w1d1-intro-to-tools-exercises zgroves$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
 
-$ <enter the Git command to "stage" all changes>
-
-$ <enter the Git command to save all "staged" changes>
-
-$ <enter the Git command to save local repository to BitBucket>
+nothing to commit, working tree clean
+Techs-MacBook-Air-21:m1-w1d1-intro-to-tools-exercises zgroves$ git push
+Counting objects: 7, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (7/7), 1.12 KiB | 571.00 KiB/s, done.
+Total 7 (delta 2), reused 0 (delta 0)
+To https://bitbucket.org/te-cbus-cohort-5/zacharygroves-java-green-exercises.git
+   335dbfb..e12b454  master -> master
