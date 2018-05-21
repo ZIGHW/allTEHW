@@ -227,18 +227,21 @@ Helloworld.java		Helloworld.java.copy
     commit to the local repository, but also push it up to BitBucket. 
 ----
 
-$ <enter the Git command to display status>
-<type or copy-paste the result here>
-Git status
-$ <enter the Git command to "stage" all changes>
-<type or copy-paste the result here>
-Git add .
-$ <enter the Git command to save all "staged" changes>
-<type or copy-paste the result here>
-
-Git commit -m "feature completion"
-<type or copy-paste the result here>
-Git  push
+Techs-MacBook-Air-21:java-helloworld zgroves$ cd ..
+Techs-MacBook-Air-21:m1-w1d1-intro-to-tools-exercises zgroves$ git add .
+Techs-MacBook-Air-21:m1-w1d1-intro-to-tools-exercises zgroves$ git commit -m "feature is complete"
+[master 335dbfb] feature is complete
+ 2 files changed, 24 insertions(+), 4 deletions(-)
+ create mode 100755 m1-w1d1-intro-to-tools-exercises/java-helloworld/src/main/java/com/techelevator/Helloworld.java.copy
+Techs-MacBook-Air-21:m1-w1d1-intro-to-tools-exercises zgroves$ git push
+Counting objects: 14, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (14/14), 1.83 KiB | 939.00 KiB/s, done.
+Total 14 (delta 5), reused 0 (delta 0)
+To https://bitbucket.org/te-cbus-cohort-5/zacharygroves-java-green-exercises.git
+   e8898b6..335dbfb  master -> master
+Techs-MacBook-Air-21:m1-w1d1-intro-to-tools-exercises zgroves$ 
 
 ----
 16. Delete the backup file, "Helloworld.java.copy" using the remove command.
@@ -250,6 +253,8 @@ The "rm" parameter is the name of the file to be deleted.
 
 $ <enter command to list all files and folders in order to confirm the file deletion>
 <type or copy-paste the result here>
+Techs-MacBook-Air-21:techelevator zgroves$ ls
+Helloworld.java		Helloworld.java.copy
 
 
 ----
@@ -270,20 +275,24 @@ command line when that seems natural.
 
 Regardless of the option you chose, check your new location.
 
-$ <enter command to display present working directory>
-<type or copy-paste your present working directory here>
+Techs-MacBook-Air-21:java-helloworld zgroves$ pwd
+/Users/zgroves/Development/zacharygroves-java-green-exercises/m1-w1d1-intro-to-tools-exercises/java-helloworld
 
 
 ----
 18. Create a documentation folder named "docs" under java-helloworld, and then
     change into it.
+
 ----
 
 $ mkdir docs
 $ <enter the command to change directory to "docs" using a relative path>
+Techs-MacBook-Air-21:java-helloworld zgroves$ cd docs
+
 $ <enter command to display present working directory>
 <type or copy-paste your present working directory here>
-
+Techs-MacBook-Air-21:docs zgroves$ pwd
+/Users/zgroves/Development/zacharygroves-java-green-exercises/m1-w1d1-intro-to-tools-exercises/java-helloworld/docs
 ----
 19. Create a new file name "readme.txt" using Visual Studio Code, and add the text
     "Hello, this is the beginning of the application's documentation."
