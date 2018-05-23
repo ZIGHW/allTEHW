@@ -427,7 +427,10 @@ public class Exercises {
         double timeToPaintFive = rooms / totalSpeed;
         int moreRooms = 623;
         int hoursPerDay = 8;
-        double daysToPaint = Math.ceil( 623/ (totalSpeed * 8) );
+        
+        
+        double daysToPaint = Math.ceil( moreRooms/ (totalSpeed * hoursPerDay) );
+        System.out.println(daysToPaint + " timeToPaintFive  " + timeToPaintFive);
         
         /*
         Create and assign variables to hold your first name, last name, and middle initial. Using concatenation,
@@ -450,7 +453,12 @@ public class Exercises {
         double traveled = 537;
         double percentTraveled = (traveled / distance) * 100;
         System.out.println("percent Traveled: " + percentTraveled);
-        int percentTraveledInt = (int) percentTraveled;            
+        int percentTraveledInt = (int) percentTraveled;      
+        System.out.println("This is p" + percentTraveled);
 	}
 
 }
+
+
+
+
