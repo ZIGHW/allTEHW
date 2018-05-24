@@ -34,10 +34,21 @@ public class Exercises {
 	 sumDouble(2, 2) → 8
 	 */
 	public int sumDouble(int a, int b) {
+<<<<<<< HEAD
 		if (a==b) {
 			return (a + b) * 2;
 		}
 		return a + b;
+=======
+		int sum = 0;
+		if (a == b) {
+			sum = 2 * (a+b);
+		}
+		else {
+			sum = a+b;
+		}
+		return sum;
+>>>>>>> caf3b9c65a60abb03d58dc393b70f675b070723f
 	}
 
 	/*
