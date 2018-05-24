@@ -449,7 +449,7 @@ public class Exercises {
 	public boolean twoAsOne(int a, int b, int c) {
 		if (a + b == c) 
 			return true;
-		else if (a + c == b)
+		else if (a + c == b) 
 			return true;
 		else if (c + b == a) 
 			return true;
