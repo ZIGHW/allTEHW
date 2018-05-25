@@ -10,11 +10,20 @@ public class Exercises {
 	 firstLast6([13, 6, 1, 2, 3]) → false
 	 */
 	public boolean firstLast6(int[] nums) {
+<<<<<<< HEAD
 			if ((nums[nums.length -1] == 6) || (nums[0] == 6)) {
 				return true;
 			} else {
 		return false;
 			}
+=======
+		if (nums[0] == 6 || nums[nums.length -1] == 6) {
+			return true;
+		} 
+		else {
+		  return false;
+		}
+>>>>>>> 251d9499f964415264d6381431380e1436bd69e7
 	}
 
 	/*
