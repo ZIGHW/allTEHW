@@ -513,11 +513,11 @@ public class Exercises {
 	public int loneSum(int a, int b, int c) {
 		if (a == b && a == c) 
 			return 0;
-		else if (a == b) 
+		if (a == b) 
 			return c;
-		else if (c == a) 
+		if (c == a) 
 			return b;
-		else if (b == c) 
+		if (b == c) 
 			return a;
 		return a + b + c;
 		
