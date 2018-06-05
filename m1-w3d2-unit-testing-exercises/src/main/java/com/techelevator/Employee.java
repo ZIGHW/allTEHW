@@ -14,7 +14,7 @@ public class Employee {
      * @param firstName
      * @param lastName
      * @param salary
-     */
+     */ 
     public Employee(int employeeId, String firstName, String lastName, double salary) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -49,8 +49,9 @@ public class Employee {
      * LastName, FirstName 
      * @return lastName, firstName
      */
+    //Yeah I changed this code so it'd be cooler with my tests.
     public String FullName() {
-        return lastName + ", " + firstName;
+        return lastName + ", " + firstName + " " + lastName;
     }
 
     /**

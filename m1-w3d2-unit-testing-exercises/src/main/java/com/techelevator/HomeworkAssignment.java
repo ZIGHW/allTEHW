@@ -13,7 +13,7 @@ public class HomeworkAssignment {
     public HomeworkAssignment(int possibleMarks) {
         this.possibleMarks = possibleMarks;
     }
-
+    
     /**
      * Total number of marks received 
      * @return

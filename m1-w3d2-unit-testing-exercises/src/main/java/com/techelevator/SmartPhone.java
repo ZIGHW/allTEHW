@@ -7,7 +7,7 @@ public class SmartPhone {
     private String operatingSystem;
     private boolean onCall;
     private int batteryCharge = 100;
-
+ 
     /**
      * Creates a new smart phone 
      * @param phoneNumber
@@ -18,7 +18,7 @@ public class SmartPhone {
         this.phoneNumber = phoneNumber;
         this.carrier = carrier;
     }
-
+ 
     /**
      * 10-digit phone number
      * @return phoneNumber
