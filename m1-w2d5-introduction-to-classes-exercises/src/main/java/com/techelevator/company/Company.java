@@ -1,9 +1,8 @@
 package com.techelevator.company;
 
-import static org.junit.Assert.assertTrue;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
+
+
 
 public class Company {
 	private String name;
