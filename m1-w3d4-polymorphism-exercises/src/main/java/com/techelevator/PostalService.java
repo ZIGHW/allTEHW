@@ -4,31 +4,65 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 
 public class PostalService implements DeliveryDriver {
+	private int speed;
+	PostalService(int speed) {
+		this.speed = speed;
+	}
 	
 
-	public BigDecimal calculateRate(BigDecimal distance, String weightClass) {
-		HashMap<String, BigDecimal> c = new HashMap<String, BigDecimal>();
-		c.put("0-21st", new BigDecimal(0.035));
-		c.put("0-22nd", new BigDecimal(0.0035));
-		c.put("0-23rd", new BigDecimal(0.00020));
-		c.put("3-81st", new BigDecimal(0.040));
-		c.put("3-82nd", new BigDecimal(0.0040));
-		c.put("3-83rd", new BigDecimal(0.0022));
-		c.put("9-151st", new BigDecimal(0.047));
-		c.put("9-152nd", new BigDecimal(0.0047));
-		c.put("9-153rd", new BigDecimal(0.0024));
-		c.put("1-31st", new BigDecimal(0.195));
-		c.put("1-32nd", new BigDecimal(0.0195));
-		c.put("1-33rd", new BigDecimal(0.0150));
-		c.put("4-81st", new BigDecimal(0.45));
-		c.put("4-82nd", new BigDecimal(0.0450));
-		c.put("4-83rd", new BigDecimal(0.0260));
-		c.put("9+1st", new BigDecimal(0.5));
-		c.put("9+2nd", new BigDecimal(0.0500));
-		c.put("9+3rd", new BigDecimal(0.0170));
+	public BigDecimal calculateRate(BigDecimal distance, BigDecimal weight, boolean pounds) {
+		HashMap<Integer, BigDecimal> c1st = new HashMap<Integer, BigDecimal>();
+		HashMap<Integer, BigDecimal> c2nd = new HashMap<Integer, BigDecimal>();
+		HashMap<Integer, BigDecimal> c3rd = new HashMap<Integer, BigDecimal>();
+		if (pounds == true) {
+			weight = weight.multiply(new BigDecimal(16));
+		}
 		
-		return c.get(weightClass).multiply(distance);
+		int intWeight = (int) Integer.valueOf(weight.intValue());
+		c1st.put(0, new BigDecimal(0.035));
+		c2nd.put(0, new BigDecimal(0.0035));
+		c3rd.put(0, new BigDecimal(0.00020));
+		c1st.put(3, new BigDecimal(0.040));
+		c2nd.put(3, new BigDecimal(0.0040));
+		c3rd.put(3, new BigDecimal(0.0022));
+		c1st.put(9, new BigDecimal(0.047));
+		c2nd.put(9, new BigDecimal(0.0047));
+		c3rd.put(9, new BigDecimal(0.0024));
+		c1st.put(16, new BigDecimal(0.195));
+		c2nd.put(16, new BigDecimal(0.0195));
+		c3rd.put(16, new BigDecimal(0.0150));
+		c1st.put(64, new BigDecimal(0.45));
+		c2nd.put(64, new BigDecimal(0.0450));
+		c3rd.put(64, new BigDecimal(0.0260));
+		c1st.put(144, new BigDecimal(0.5));
+		c2nd.put(144, new BigDecimal(0.0500));
+		c3rd.put(144, new BigDecimal(0.0170));
 		
+		
+		if (intWeight >= 144) {
+			intWeight = 144;
+		} else if (intWeight >= 64) {
+			intWeight = 64;
+		} else if (intWeight >= 16) {
+			intWeight = 16;
+		} else if (intWeight >= 9) {
+			intWeight = 9;
+		} else if (intWeight >= 3) {
+			intWeight = 3;
+		} else {
+			intWeight = 0;
+		}
+		
+		
+		if (speed == 1) {
+			return c1st.get(intWeight).multiply(distance);
+		}
+		if (speed == 2) {
+			return c2nd.get(intWeight).multiply(distance);
+		}
+		else {
+			return c3rd.get(intWeight).multiply(distance);
+		}
 	}
 
 }
