@@ -571,7 +571,7 @@ public class ExercisesTest {
 	* tripleUp([-100, -99, -99, 100, 101, 102]) → true
 	* tripleUp([2, 3, 5, 6, 8, 9, 2, 3]) → false	false
 	*/
-	@Test
+	@Test 
     public void tripleUp() {
 		areEqual(true, exercises.tripleUp(new int[] {1, 4, 5, 6, 2}), "Input: {1, 4, 5, 6, 2}");
 		areEqual(true, exercises.tripleUp(new int[] {1, 2, 3}), "Input: {1, 4, 5, 6, 2}");

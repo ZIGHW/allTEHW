@@ -1,7 +1,14 @@
 package com.techelevator;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Exercises {
 
@@ -12,7 +19,19 @@ public class Exercises {
     arrayDeduplication([1, 1, 1]) → [1]
     */
     public int[] arrayDeduplication(int[] nums) {
-        return null;
+    	List<Integer> noDupes = new ArrayList<Integer>();
+    	for (int i = 0; i < nums.length; i++) {
+    		int checking = nums[i];
+    		if (!noDupes.contains(checking)){
+    			noDupes.add(checking);
+    		}
+    	}
+    	
+    	int[] noDupesArr = new int[noDupes.size()];
+    	for (int c = 0; c < noDupesArr.length; c++) {
+    		noDupesArr[c] = noDupes.get(c);
+    	}
+    	return noDupesArr;
     }
     
     /*
@@ -24,8 +43,23 @@ public class Exercises {
         arrayIntersection([], []) → []
     */
     public int[] arrayIntersection(int[] a, int[] b) {
-        return null;
+    	List<Integer> aList  = Arrays.stream( a ).boxed().collect( Collectors.toList() );
+    	List<Integer> bList  = Arrays.stream( b ).boxed().collect( Collectors.toList() );
+    	
+    	Set<Integer> setA = new HashSet<Integer>(aList);
+    	Set<Integer> setB = new HashSet<Integer>(bList);
+    	setA.retainAll(setB);
+    	
+    	Integer[] crossSection = setA.toArray(new Integer[setA.size()]);
+    	int[] crossSectionCorrect = new int[crossSection.length];
+    	for (int i = 0; i < crossSection.length; i++) {
+    		crossSectionCorrect[i] = (int) crossSection[i];
+    	}
+    	return crossSectionCorrect;
     }
+    	
+    	
+    	
     
     /*
     Given an integer array, return the array sorted lowest to highest.
@@ -44,7 +78,13 @@ public class Exercises {
     blackjack(19, 22) → 19
     */
     public int blackjack(int a, int b) {
-        return 0;
+    	if (a > 21 && b > 21) {
+    		return 0;
+    	} else if (((21 - a) <= (21 - b) && (21 - a) >= 0) || b > 21) {
+    		return a;
+    	} else {
+    		return b;
+    	}
     }
     
     /*
@@ -56,9 +96,13 @@ public class Exercises {
     closeFar(4, 1, 3) → true
     */
     public boolean closeFar(int a, int b, int c) {
-        return false;
+    	if (Math.abs(a - b) <= 1 && Math.abs(a-c) >= 2 && Math.abs(b-c) >= 2  ) {
+    		return true;
+    	} else if (Math.abs(a - c) <= 1 && Math.abs(a - b) >= 2 && Math.abs(c-b) >= 2  )
+    		return true;
+    	
+    	return false;
     }
-
     /*
     CHALLENGE: Say that a "clump" in an array is a series of 2 or more adjacent elements of the same value.
     Return the number of clumps in the given array.
@@ -67,7 +111,35 @@ public class Exercises {
     countClumps([1, 1, 1, 1, 1]) → 1
     */
     public int countClumps(int[] nums) {
-        return 0;
+    	//System.out.println(Arrays.toString(nums));
+    	
+    	int tail = 0;
+    	
+    	int count = 0;
+    	boolean startAgain = true;
+    	
+    	
+    	for (int i = 1; i < nums.length; i++) {
+    		
+    		
+//    		if (startAgain == true) {
+//    			tail++;
+//    			if (nums[tail] == nums[i]) {
+//            		count++;
+//            		startAgain = false;
+//    		}
+//    			
+//    		} else if (startAgain == false && nums[tail] != nums[i]) {
+//    			tail = i;
+//    			i++;
+//    			startAgain = true;
+//    			
+//    		} else {
+//    			tail++;
+//    		}
+//    		System.out.println(nums[tail] + "   i= " + nums[i]);
+//    	}
+        return count;
     }
 
     /*
@@ -93,6 +165,24 @@ public class Exercises {
     * has271([2, 7, 1]) → true     
     */
     public boolean has271(int[] nums) {
+    //This test is garbage or I don't understand the directions.
+    	int tail = 0;
+    //	System.out.println(Arrays.toString((nums)));
+    	for (int i = 1; i < nums.length; i++) {
+    		if (nums[tail] == nums[i] - 5) {
+    		//	System.out.println("first part met");
+    		
+    			if (i + 1 == nums.length) {
+    				return false;
+    			} else if (Math.abs(nums[tail] - nums[i+1]) <= 1) {
+    				return true;
+    			}
+  
+    		}
+    		tail++;
+    		
+    	}
+    	
         return false;
     }
 
@@ -105,7 +195,15 @@ public class Exercises {
     lastDigit(23, 19, 3) → true
     */
     public boolean lastDigit(int a, int b, int c) {
-        return false;
+    	String aStr = Integer.toString(a);
+    	String bStr = Integer.toString(b);
+    	String cStr = Integer.toString(c);
+    	
+    	char aLastDigit = aStr.charAt(aStr.length() -1);
+    	char bLastDigit = bStr.charAt(bStr.length() -1);
+    	char cLastDigit = cStr.charAt(cStr.length() -1);
+    	return (aLastDigit == bLastDigit || aLastDigit == cLastDigit || bLastDigit == cLastDigit);
+    	 
     }
 
     /*
@@ -118,6 +216,7 @@ public class Exercises {
     makeBricks(3, 2, 10) → true
     */
     public boolean makeBricks(int small, int big, int goal) {
+ 
         return false;
     }
 
@@ -129,7 +228,23 @@ public class Exercises {
     maxBlock("") → 0
     */
     public int maxBlock(String str) {
-        return 0;
+    	if (str.length() == 0)
+    		return 0;
+    	int maxCount = 1;
+    	int count = 1;
+    	int tail = 0;
+    	for (int i = 1; i < str.length(); i++) {
+    		if (str.charAt(tail) == str.charAt(i)) {
+    			count += 1;
+    			if (count >= maxCount) 
+    				maxCount = count;
+    		} else {
+    			count = 1;
+    			tail = i;
+    		}
+    		
+    	}
+        return maxCount;
     }
 
     /*
@@ -152,7 +267,7 @@ public class Exercises {
     * mixStart("piz snacks") → false        
     */
     public boolean mixStart(String str) {
-        return false;
+    	return ( str.length() !=  str.replaceAll(".ix", "").length());
     }
 
     /*
@@ -162,7 +277,16 @@ public class Exercises {
     more14([1, 1]) → true
     */
     public boolean more14(int[] nums) {
-        return false;
+    	int count1 = 0;
+    	int count4 = 0;
+    	for (int num : nums)	{
+    		if (num == 4) {
+    			count4++;
+    		} else if (num == 1) {
+    			count1++;
+    		}
+    	}
+        return (count4 < count1);
     }
     
     /*
@@ -174,7 +298,16 @@ public class Exercises {
     * noTriples([1, 1, 1, 2, 2, 2, 1]) → false
     */
     public boolean noTriples(int[] nums) {
-        return false;
+    	int tail;
+    	int middle;
+    	for (int i = 2; i < nums.length; i++) {
+    		tail = i - 2;
+    		middle = i - 1;
+    		if (nums[tail] == nums[middle] && nums[middle] == nums[i]) {
+    			return false;
+    		}
+    	}
+    	return true;
     }
 
     /*
@@ -186,7 +319,12 @@ public class Exercises {
     * oneTwo("tcagdo") → "catdog"
     */
     public String oneTwo(String str) {
-        return null;
+    	int num3s = str.length() / 3;
+    	String oneTwoed = "";
+    	for (int i = 0; i < num3s * 3; i+=3) {
+    		oneTwoed += str.substring(i + 1, i + 3) + str.substring(i, i+1);
+    	}
+        return oneTwoed;
     }
     
     /*
@@ -197,7 +335,16 @@ public class Exercises {
     * repeatSeparator("This", "And", 1) → "This"
     */
     public String repeatSeparator(String word, String sep, int count) {
-        return null;
+    	String bigStr = "";
+    	
+    	for (int i = 0; i < count; i++) {
+    		bigStr += word; 
+    				
+    		if (i + 1 != count) {
+    			bigStr += sep;
+    		}
+    	}
+        return bigStr;
     }
 
     /*
@@ -207,7 +354,13 @@ public class Exercises {
     * ("Heelele") → false
     */
     public boolean stringE(String str) {
-        return false;
+    	int eCount = 0;
+    	for (int i = 0; i < str.length(); i++) {
+    		if (str.charAt(i) == 'e') {
+    			eCount++;
+    		}
+    	}
+        return (eCount >= 1 && eCount <= 3);
     }
     
     /*
@@ -230,6 +383,13 @@ public class Exercises {
     tripleUp([1, 2, 4]) → false
     */
     public boolean tripleUp(int[] nums) {
+    	for (int i = 2; i < nums.length; i++) {
+    		int tail = i - 2;
+    		int middle = i - 1;
+    		if (nums[i] - nums[middle] == 1 && nums[middle] - nums[tail] == 1) {
+    			return true;
+    		}
+    	}
         return false;
     }
 
@@ -242,6 +402,6 @@ public class Exercises {
     * zipZap("zzzopzop") → "zzzpzp"
     */
     public String zipZap(String str) {
-        return null;
+    	return str.replaceAll("z.p", "zp");
     }
 }
