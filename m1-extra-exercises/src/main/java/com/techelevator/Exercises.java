@@ -139,7 +139,8 @@ public class Exercises {
 //    		}
 //    		System.out.println(nums[tail] + "   i= " + nums[i]);
 //    	}
-        return count;
+         }
+    	return count;
     }
 
     /*
