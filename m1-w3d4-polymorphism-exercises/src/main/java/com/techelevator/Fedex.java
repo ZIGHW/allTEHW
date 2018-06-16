@@ -3,14 +3,18 @@ package com.techelevator;
 import java.math.BigDecimal;
 
 public class Fedex implements DeliveryDriver {
-
-	public BigDecimal calculateRate(BigDecimal distance, BigDecimal weight, boolean pounds) {
-		BigDecimal rate = new BigDecimal(20.00);
-		BigDecimal over500miles = new BigDecimal(5.00);
-		BigDecimal over48Ounces = new BigDecimal(3.00);
+	
+	public BigDecimal toOz(BigDecimal weight, boolean pounds) {
 		if (pounds == true) {
 			weight = weight.multiply(new BigDecimal(16));
 		}
+		return weight;
+	}
+
+	public BigDecimal calculateRate(BigDecimal distance, BigDecimal weight) {
+		BigDecimal rate = new BigDecimal(20.00);
+		BigDecimal over500miles = new BigDecimal(5.00);
+		BigDecimal over48Ounces = new BigDecimal(3.00);
 		
 		if (distance.compareTo(new BigDecimal(500)) == 1) {
 			rate = rate.add(over500miles);

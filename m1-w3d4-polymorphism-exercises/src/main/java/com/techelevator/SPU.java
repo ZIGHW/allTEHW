@@ -4,17 +4,22 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 
 public class SPU implements DeliveryDriver {
-	private String numberOfDays;
+	String numberOfDays;
 	
 	SPU(String numberOfDays){
 		this.numberOfDays = numberOfDays;
 	}
 	
-	public BigDecimal calculateRate(BigDecimal distance, BigDecimal weight, boolean pounds) {
-		BigDecimal weightClassBig = weight;
+	public BigDecimal toPounds(BigDecimal weight, boolean pounds) {
 		if (pounds == false) {
-			weightClassBig = weightClassBig.divide(new BigDecimal(16));
+			weight = weight.divide(new BigDecimal(16));
 		}
+		return weight;
+		
+	}
+	
+	public BigDecimal calculateRate(BigDecimal distance, BigDecimal weight) {
+		BigDecimal weightClassBig = weight;
 		HashMap<String, BigDecimal> rates = new HashMap<String, BigDecimal>();
 		rates.put("four",  new BigDecimal(0.0050));
 		rates.put("two",  new BigDecimal(0.050));

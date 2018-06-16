@@ -16,7 +16,6 @@ public class QuizMaker {
 			
 		} catch (FileNotFoundException exc) {
 			System.out.println("Alles ist verlassen");
-			
 			return;
 		}
 		int correct = 0;

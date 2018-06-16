@@ -36,12 +36,7 @@ public class VehicleDemo {
 						Double.toString(distance6.doubleValue()), tollBoomBoom);
 	}
 }
-//Vehicle          Distance Traveled      Toll $
-//----------------------------------------------
-//Car              100                    $2.00
-//Car              75                     $2.50
-//Tank             240                    $0.00
-//Truck            150                    $6.75
+
 
 
 

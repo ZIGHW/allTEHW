@@ -23,10 +23,9 @@ public class SPUTest {
 	
 	@Test 
 	public void testRateCalculations() {
-		Assert.assertEquals(500.0, s2days.calculateRate(new BigDecimal(100), new BigDecimal(100), true).doubleValue(), .1);
-		Assert.assertEquals(50.0, s4days.calculateRate(new BigDecimal(100), new BigDecimal(100), true).doubleValue(), .1);
-		Assert.assertEquals(750.0, sNext.calculateRate(new BigDecimal(100), new BigDecimal(100), true).doubleValue(), .1);
-		
+		Assert.assertEquals(500.0, s2days.calculateRate(new BigDecimal(100), s2days.toPounds(new BigDecimal(100), true)).doubleValue(), .1);
+		Assert.assertEquals(50.0, s4days.calculateRate(new BigDecimal(100), s4days.toPounds(new BigDecimal(100), true)).doubleValue(), .1);
+		Assert.assertEquals(750.0, sNext.calculateRate(new BigDecimal(100), sNext.toPounds(new BigDecimal(100), true)).doubleValue(), .1);
 	}
 
 }

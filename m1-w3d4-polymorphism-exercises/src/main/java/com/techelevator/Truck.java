@@ -19,16 +19,3 @@ public class Truck implements Vehicle {
 	}
 	
 }
-
-
-//A truck "is-a" vehicle and the tolls for trucks are based upon the number of axles.
-//
-//|--------|-----------|
-//| Axles  | Per Mile  |
-//|--------|-----------|
-//|   4    |   0.040   |
-//|   6    |   0.045   |
-//|   8+   |   0.048   |
-//|--------|-----------|
-//
-//toll = rate per mile * distance

@@ -20,6 +20,7 @@ public class Exercises {
     */
     public int[] arrayDeduplication(int[] nums) {
     	List<Integer> noDupes = new ArrayList<Integer>();
+    	
     	for (int i = 0; i < nums.length; i++) {
     		int checking = nums[i];
     		if (!noDupes.contains(checking)){
@@ -27,10 +28,8 @@ public class Exercises {
     		}
     	}
     	
-    	int[] noDupesArr = new int[noDupes.size()];
-    	for (int c = 0; c < noDupesArr.length; c++) {
-    		noDupesArr[c] = noDupes.get(c);
-    	}
+    	int[] noDupesArr = noDupes.stream().mapToInt(p -> (int) p).toArray();
+    	System.out.println(Arrays.toString(noDupesArr));
     	return noDupesArr;
     }
     
@@ -43,19 +42,10 @@ public class Exercises {
         arrayIntersection([], []) → []
     */
     public int[] arrayIntersection(int[] a, int[] b) {
-    	List<Integer> aList  = Arrays.stream( a ).boxed().collect( Collectors.toList() );
-    	List<Integer> bList  = Arrays.stream( b ).boxed().collect( Collectors.toList() );
-    	
-    	Set<Integer> setA = new HashSet<Integer>(aList);
-    	Set<Integer> setB = new HashSet<Integer>(bList);
+    	HashSet<Integer> setB  = (HashSet) Arrays.stream( a ).boxed().collect( Collectors.toSet() );
+    	HashSet<Integer> setA  = (HashSet) Arrays.stream( b ).boxed().collect( Collectors.toSet() );
     	setA.retainAll(setB);
-    	
-    	Integer[] crossSection = setA.toArray(new Integer[setA.size()]);
-    	int[] crossSectionCorrect = new int[crossSection.length];
-    	for (int i = 0; i < crossSection.length; i++) {
-    		crossSectionCorrect[i] = (int) crossSection[i];
-    	}
-    	return crossSectionCorrect;
+    	return setA.stream().mapToInt(p -> (int) p).toArray();
     }
     	
     	
@@ -217,8 +207,16 @@ public class Exercises {
     makeBricks(3, 2, 10) → true
     */
     public boolean makeBricks(int small, int big, int goal) {
+    	while (goal - 5 >= 0 && big > 0 ) {
+    		goal -= 5;
+    		big--;
+    	}
+    	while (goal > 0 && small > 0) {
+    		goal--;
+    		small--;
+    	}
  
-        return false;
+        return (goal == 0);
     }
 
     /*
@@ -373,7 +371,20 @@ public class Exercises {
     * stringMatch("abc", "axc") → 0  
     */
     public int stringMatch(String a, String b) {
-        return 0;
+    	int count = 0;
+    	if (a.length() < b.length()) {
+    		String temp = a;
+    		a = b;
+    		b = temp;
+    	}
+    	
+    	for (int i = 0; i < (b.length() - 1); i++) {
+    		System.out.println(b.substring(i, i + 2));
+    		if (b.substring(i, i + 2).equals(a.substring(i, i + 2))) {
+    			count++;
+    		}
+    	}
+        return count;
     }
 
     /*
