@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class FileSplitter {
 
 	public static void main(String[] args) {
-		Scanner aliceInput;
+		Scanner aliceInput = null;
 		Scanner userInput;
 		boolean trying = true;
 		PrintWriter writeAlice;
@@ -18,7 +18,6 @@ public class FileSplitter {
 		try {
 			newFile = new File("AliceSplit/split1.txt");
 			newFile.createNewFile();
-			System.out.println("created split1");
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("it's ruined");
@@ -27,8 +26,6 @@ public class FileSplitter {
 		
 		try {
 			 userInput = new Scanner(System.in);
-			
-			 aliceInput = new Scanner(new File("AliceSplit/alices_adventures_in_wonderland copy.txt"));
 			 writeAlice = new PrintWriter("AliceSplit/split1.txt");
 			
 		} catch (FileNotFoundException exc) {
@@ -36,17 +33,24 @@ public class FileSplitter {
 			System.out.println("Alles ist verlassen");
 			return;
 		}
+		// aliceInput = new Scanner(new File("AliceSplit/alices_adventures_in_wonderland copy.txt"));
 		int whereToSplit = 0;
 		while(trying) {
 			try {
+				System.out.println("Please enter the file path to the file you'd like to split:");
+				 aliceInput = new Scanner(new File(userInput.nextLine()));
+				 
 				System.out.println("How many lines should be in each output file??");
 				whereToSplit = Integer.parseInt(userInput.nextLine());	
+				
 				System.out.println("Alright cool here we go!");
 				trying = false;
 			} catch(NumberFormatException e) {
 				e.printStackTrace();
 				System.out.println("That response is invalid please try again.");
 				continue;
+			} catch(FileNotFoundException exc) {
+				System.out.println("We can't find that file, please try a different filepath\n");
 			}
 		}
 		int count = 0;
@@ -61,7 +65,7 @@ public class FileSplitter {
 					fileCount++;
 					count = 0;
 					
-					System.out.println("newfile created: " + newFile.toString());
+					//System.out.println("newfile created: " + newFile.toString());
 				} catch (IOException e) {
 					e.printStackTrace();
 					System.out.println("Couldn't make the new file?");

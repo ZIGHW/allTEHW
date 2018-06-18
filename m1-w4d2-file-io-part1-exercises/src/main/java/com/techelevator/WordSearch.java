@@ -12,23 +12,24 @@ public class WordSearch {
 	public static void main(String[] args) {
 		List<String> allLines = new ArrayList<String>();
 		Scanner userInput;
-		Scanner aliceInput;
-		try {
-			 userInput = new Scanner(System.in);
-			
-			 aliceInput = new Scanner(new File("alices_adventures_in_wonderland.txt"));
-			
-		} catch (FileNotFoundException exc) {
-			System.out.println("Alles ist verlassen");
-			return;
-		}
-		System.out.println("Enter the word or character that we should search Alice in Wonderland for:");
-		String searchFor = userInput.nextLine();
+		Scanner aliceInput = null;
+		String searchFor = "";
+		userInput = new Scanner(System.in);
+			 
 		boolean theyTryin = true;
 		String caseSensitiveReply;
 		boolean caseSensitive = false;
 		
 		while (theyTryin) {
+			try {
+				System.out.println("Please enter the file path for the file you'd like to search:");
+				 aliceInput = new Scanner(new File(userInput.nextLine()));
+			} catch (FileNotFoundException exc) {
+				System.out.println("That's not a valid file path. Please try again!");
+				continue;
+			}
+			System.out.println("Enter the word or character that we should search Alice in Wonderland for:");
+			searchFor = userInput.nextLine();
 			System.out.println("Should the search be case sensitive?? (Y)es or (N)o?");
 			caseSensitiveReply = userInput.nextLine();
 			if (caseSensitiveReply.equals("Y") || caseSensitiveReply.equals("y")) {
@@ -51,11 +52,11 @@ public class WordSearch {
 			String line = aliceInput.nextLine();
 			lineCounter++;
 			if (caseSensitive) {
-				if (Pattern.compile(Pattern.quote(searchFor), Pattern.CASE_INSENSITIVE).matcher(line).find()) {
+				if (line.contains(searchFor)) {
 					allLines.add(Integer.toString(lineCounter) + ") " + line);
 				}
 			} else {
-				if (line.contains(searchFor)) {
+				if (Pattern.compile(Pattern.quote(searchFor), Pattern.CASE_INSENSITIVE).matcher(line).find()) {
 					allLines.add(Integer.toString(lineCounter) + ") " + line);
 				}
 			}
@@ -64,8 +65,8 @@ public class WordSearch {
 		
 		System.out.println("So we found " + allLines.size() + " occurences of where " + searchFor + " appeared. Here they are:\n");
 		for (String eachLine : allLines) {
-			System.out.println(eachLine);
+			//System.out.println(eachLine);
 		}
 	}
-
 }
+//alices_adventures_in_wonderland.txt
