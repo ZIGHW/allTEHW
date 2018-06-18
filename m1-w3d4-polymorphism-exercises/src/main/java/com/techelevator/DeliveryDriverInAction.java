@@ -20,12 +20,9 @@ public class DeliveryDriverInAction {
 			BigDecimal weight = new BigDecimal(input.nextLine());
 			System.out.println("(P)ounds or (O)unces");
 			String pOrOz = input.nextLine();
-			System.out.println(pOrOz);
 			if (pOrOz.equals("P") || pOrOz.equals("p")) {
 				pounds = true;
 			}
-			System.out.println(pounds);
-			
 			System.out.println("How far we sending this baby?");
 			BigDecimal distance = new BigDecimal(input.nextLine());
 			
