@@ -65,7 +65,7 @@ public class WordSearch {
 		
 		System.out.println("So we found " + allLines.size() + " occurences of where " + searchFor + " appeared. Here they are:\n");
 		for (String eachLine : allLines) {
-			//System.out.println(eachLine);
+			System.out.println(eachLine);
 		}
 	}
 }
