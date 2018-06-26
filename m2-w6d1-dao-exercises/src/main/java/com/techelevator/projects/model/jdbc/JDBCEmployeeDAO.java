@@ -6,6 +6,7 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TimeZone;
 
 import javax.sql.DataSource;
 
@@ -41,11 +42,11 @@ public class JDBCEmployeeDAO implements EmployeeDAO {
 		lastNameSearch = "%" + lastNameSearch + "%";
 		firstNameSearch = "%" + firstNameSearch + "%"; 
 		if (firstNameSearch.equals("")) {
-			 sqlFindEmployeeByName = "SELECT * FROM employee Where lastName LIKE" + lastNameSearch;
+			 sqlFindEmployeeByName = "SELECT * FROM employee Where last_name ILIKE '" + lastNameSearch + "'";
 		} else if (lastNameSearch.equals("")) {
-		     sqlFindEmployeeByName = "SELECT * FROM employee Where firstName LIKE" + firstNameSearch;
+		     sqlFindEmployeeByName = "SELECT * FROM employee Where first_name ILIKE '" + firstNameSearch + "'";
 		} else {
-			sqlFindEmployeeByName = "SELECT * FROM employee Where firstName LIKE" + firstNameSearch +  "AND lastName LIKE" + lastNameSearch;
+			sqlFindEmployeeByName = "SELECT * FROM employee Where first_name ILIKE '" + firstNameSearch +  "' AND last_name LIKE '" + lastNameSearch + "'";
 		}
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlFindEmployeeByName);
 		while (results.next()) {
@@ -58,8 +59,8 @@ public class JDBCEmployeeDAO implements EmployeeDAO {
 	@Override
 	public List<Employee> getEmployeesByDepartmentId(long id) {
 		ArrayList<Employee> employees = new ArrayList<Employee>();
-		String sqlGetEmployeeByDeptId = "SELECT * FROM employee WHERE department_id =" + id;
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetEmployeeByDeptId);
+		String sqlGetEmployeeByDeptId = "SELECT * FROM employee WHERE department_id = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetEmployeeByDeptId, id);
 		while (results.next()) {
 			Employee theEmp = mapRowToEmployee(results);
 			employees.add(theEmp);
@@ -69,8 +70,17 @@ public class JDBCEmployeeDAO implements EmployeeDAO {
 
 	@Override
 	public List<Employee> getEmployeesWithoutProjects() {
+		ArrayList<Employee> employees = new ArrayList<Employee>();
+		String sqlGetEmployeesWOPRoj = "SELECT DISTINCT employee.* FROM employee LEFT OUTER JOIN project_employee ON employee.employee_id = project_employee.employee_id LEFT OUTER JOIN project "
+		+ " ON project_employee.project_id = project.project_id "
+		+ " WHERE project.project_id IS NULL ";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetEmployeesWOPRoj);
+		while (results.next()) {
+			Employee theEmp = mapRowToEmployee(results);
+			employees.add(theEmp);
+		}
+		return employees;
 		
-		return new ArrayList<>();
 	}
 
 	@Override
@@ -87,23 +97,20 @@ public class JDBCEmployeeDAO implements EmployeeDAO {
 
 	@Override
 	public void changeEmployeeDepartment(Long employeeId, Long departmentId) {
-		String sqlChangeEmployeeDept = "UPDATE employee SET department_id =" + departmentId + "WHERE employee_id =" + employeeId;
-		jdbcTemplate.update(sqlChangeEmployeeDept);
+		String sqlChangeEmployeeDept = "UPDATE employee SET department_id = ? WHERE employee_id = ?";
+		jdbcTemplate.update(sqlChangeEmployeeDept, departmentId, employeeId);
 		
 	}
 	
 	 private Employee mapRowToEmployee(SqlRowSet results) {
 		  Employee theEmp = new Employee();
+		  theEmp.setDepartmentId(results.getLong("department_id"));
 		  theEmp.setId(results.getLong("employee_id"));
 		  theEmp.setFirstName(results.getString("first_name"));
 		  theEmp.setLastName(results.getString("last_name"));
-		  Instant instant = results.getDate("birth_date").toInstant();
-		  ZonedDateTime zdt = instant.atZone(ZoneId.systemDefault());
-		  theEmp.setBirthDay(zdt.toLocalDate());
+		  theEmp.setBirthDay(results.getDate("birth_date").toLocalDate());
 		  theEmp.setGender(results.getString("gender").charAt(0));
-		  Instant instantHire = results.getDate("hire_date").toInstant();
-		  ZonedDateTime zdtHire = instantHire.atZone(ZoneId.systemDefault());
-		  theEmp.setHireDate(zdtHire.toLocalDate());
+		  theEmp.setHireDate(results.getDate("hire_date").toLocalDate());
 		  return theEmp;
 	  }
 
