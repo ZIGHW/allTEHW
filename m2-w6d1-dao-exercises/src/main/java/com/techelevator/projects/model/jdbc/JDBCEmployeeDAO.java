@@ -42,18 +42,9 @@ public class JDBCEmployeeDAO implements EmployeeDAO {
 		lastNameSearch = "%" + lastNameSearch + "%";
 		firstNameSearch = "%" + firstNameSearch + "%"; 
 		SqlRowSet results;
-		if (firstNameSearch.equals("")) {
-			 sqlFindEmployeeByName = "SELECT * FROM employee Where last_name ILIKE ?";
-				results = jdbcTemplate.queryForRowSet(sqlFindEmployeeByName, lastNameSearch);
 
-		} else if (lastNameSearch.equals("")) {
-		     sqlFindEmployeeByName = "SELECT * FROM employee Where first_name ILIKE ?";
-				results = jdbcTemplate.queryForRowSet(sqlFindEmployeeByName, firstNameSearch);
-
-		} else {
-			sqlFindEmployeeByName = "SELECT * FROM employee Where first_name ILIKE ? AND last_name LIKE ?";
-			results = jdbcTemplate.queryForRowSet(sqlFindEmployeeByName, firstNameSearch, lastNameSearch);
-		}
+		sqlFindEmployeeByName = "SELECT * FROM employee Where first_name ILIKE ? AND last_name LIKE ?";
+		results = jdbcTemplate.queryForRowSet(sqlFindEmployeeByName, firstNameSearch, lastNameSearch);
 		while (results.next()) {
 			Employee theEmp = mapRowToEmployee(results);
 			employees.add(theEmp);
