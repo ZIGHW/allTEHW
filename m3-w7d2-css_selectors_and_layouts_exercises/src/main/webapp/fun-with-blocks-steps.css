@@ -1,0 +1,70 @@
+.odd {
+	background-color: orange;
+}
+
+.even {
+	background-color: blue;
+}
+
+.box {
+	margin: 0px;
+	display: block;
+	text-align: center;
+	padding: 80px;
+	width: 60px;
+}
+
+.layer {
+	position: relative;
+}
+
+#box_0 {
+	position: relative;
+}
+
+#box_1 {
+	position: relative;
+	left: 219px;
+}
+
+#box_2 {
+	position: relative;
+	left: 438px;
+	
+}
+
+#box_3 {
+	position: relative;
+	left: 657px;
+}
+
+#box_4, #box_5 {
+	position: relative;
+	left: 876px;
+}
+
+#box_5 {
+	position: relative;
+	left: 876px;
+}
+
+#box_6 {
+	position: relative;
+	left: 657px;
+}
+
+#box_7 {
+	position: relative;
+	left: 438px;
+}
+
+#box_8 {
+	position: relative;
+	left: 219px;
+}
+
+#box_9 {
+	position: relative;
+}
+
+

@@ -1,0 +1,23 @@
+body {
+	font-size: 0;
+}
+.layer {
+	display: inline-block;
+}
+
+.box {
+	margin: 0px;
+	font-size: 70px;
+	display: block;
+	padding: 30px;
+	display: inline-block;
+	}
+	
+.odd {
+	background-color: yellow;
+}
+
+.even {
+	background-color: blue;
+}
+
