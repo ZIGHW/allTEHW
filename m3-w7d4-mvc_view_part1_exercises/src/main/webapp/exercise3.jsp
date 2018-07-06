@@ -26,7 +26,6 @@
 		 --%>
 		 <c:forEach begin= "1" end = "${param.count}" var = "count">
 		 	<li style="font-size:${param.count - count}px">"${param.word}"</li>
-		 
 		 </c:forEach>
 		</ul>
 		
