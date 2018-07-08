@@ -1,5 +1,7 @@
 body {
 	font-size: 0;
+	color: white;
+	font-family: Courier;
 }
   .layer {
 	display: inline-block;
@@ -13,10 +15,10 @@ body {
 	}
 	
 .odd {
-	background-color: teal;
+	background-color: #ff0066;
 }
 
 .even {
-	background-color: pink;
+	background-color: #00a3cc;
 }
 

@@ -3,22 +3,22 @@ body {
 	width: max-content;
 	font-size: 0px;
 	color: white;
-	font-family: Lucida Grande;
+	font-family: Courier;
 }
 
 .odd {
-	background-color: teal;
+	background-color:  #ff0066;
 }
 
 .even {
-	background-color: pink;
+	background-color: #00a3cc;
 }
 
 .box {
 	font-size: 70px;
 	display: inline-block;
 	text-align: center;
-	padding: 80px;
+	padding: 70px;
 }
 
 

@@ -1,9 +1,15 @@
+body {
+	color: white;
+	font-family: Courier;
+	font-size: 96px;
+}
+
 .odd {
-	background-color: orange;
+	background-color: #ff0066;
 }
 
 .even {
-	background-color: blue;
+	background-color: #00a3cc;
 }
 
 .box {
