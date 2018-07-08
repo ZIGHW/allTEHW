@@ -1,23 +1,22 @@
 body {
 	font-size: 0;
 }
-.layer {
+  .layer {
 	display: inline-block;
-}
+}  
 
 .box {
 	margin: 0px;
 	font-size: 70px;
-	display: block;
 	padding: 30px;
 	display: inline-block;
 	}
 	
 .odd {
-	background-color: yellow;
+	background-color: teal;
 }
 
 .even {
-	background-color: blue;
+	background-color: pink;
 }
 

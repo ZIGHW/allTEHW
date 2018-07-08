@@ -2,14 +2,16 @@ body {
 	text-align:center;
 	width: max-content;
 	font-size: 0px;
+	color: white;
+	font-family: Lucida Grande;
 }
 
 .odd {
-	background-color: orange;
+	background-color: teal;
 }
 
 .even {
-	background-color: blue;
+	background-color: pink;
 }
 
 .box {
@@ -17,8 +19,8 @@ body {
 	display: inline-block;
 	text-align: center;
 	padding: 80px;
-	
 }
+
 
 
 
