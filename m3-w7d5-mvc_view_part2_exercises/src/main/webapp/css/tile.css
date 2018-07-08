@@ -1,16 +1,16 @@
 html {
-	width: 1250px;
+	width: 2000px;
 }
 
 .starsList {
-	height: 60px;
+	height: 30px;
 	width: 120px;
 }
 
 
 #listImage {
-	height: 50%;
-	width: 70%;
+	height: 35%;
+	width: 60%;
 }
 
 .red {
@@ -42,10 +42,18 @@ p {
 }
 
 .item {
-	width: 300px;
+	width: 500px;
 	height: 450px;
 }
 
 h1 {
 	font-size: 40px;
+}
+
+.inline {
+	display: inline;
+}
+
+.mfr {
+	bottom-margin: 20px;
 }

@@ -34,7 +34,7 @@
 	    			<h3 class = "inline red">Best Seller!</h3>
 	    		</c:if>
 	    		</div>
-	    		<p>
+	    		<p class="mfr">
 	    		by <c:out value="${product.manufacturer}"/>
 	    		</p>
 	    		
@@ -42,10 +42,7 @@
 	    		$<c:out value="${product.price}"/>
 	    		</h2>
 	    		
-	    		<h3 class="inline">
-	    		Weight
-	    		</h3>
-	    		<p class="inline">
+	    		<p>
 	    		<c:out value="${product.weightInLbs}"/> lbs
 	    		</p>
 	    		
