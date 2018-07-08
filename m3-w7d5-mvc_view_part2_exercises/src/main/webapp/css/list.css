@@ -1,0 +1,50 @@
+.starsList {
+	height: 30%;
+	width: 30%;
+	display: block;
+}
+
+.titleList {
+}
+
+#listImage {
+	height: 50%;
+	width: 50%;
+	float: left;
+	
+}
+
+#titleAndSeller {
+
+}
+
+.item {
+	margin-bottom: 25%;
+	text-align: left;
+}
+
+.inline {
+	display: inline;
+}
+
+.red {
+	color: red;
+}
+
+h2 {
+	margin: 0px 5px 0px 5px;
+	}
+	
+h3 {
+	margin: 0px 5px 0px 5px;
+	}
+	
+p {
+	margin: 0px 5px 0px 5px;
+	font-size: 20px;
+	}
+	
+	
+#price {
+	color: #800000;
+}

@@ -42,7 +42,7 @@
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
-					
+					//name type cook time ing rating
 			<%--
 				Add a list item (i.e. <li>) containing each of the numbers from 1 to 100.
 				

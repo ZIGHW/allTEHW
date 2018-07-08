@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ProductController {
 
-	@RequestMapping("/productList")
+	@RequestMapping({"/", "/productList"})
 	public String showProductList(HttpServletRequest request) {
 		request.setAttribute("productList", getProducts());
 		return "productList";

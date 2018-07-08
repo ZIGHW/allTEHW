@@ -1,0 +1,51 @@
+html {
+	width: 1250px;
+}
+
+.starsList {
+	height: 60px;
+	width: 120px;
+}
+
+
+#listImage {
+	height: 50%;
+	width: 70%;
+}
+
+.red {
+	color: red;
+}
+
+h2 {
+	margin: 0px 5px 0px 5px;
+	}
+	
+h3 {
+	margin: 0px 5px 0px 5px;
+	}
+	
+p {
+	margin: 0px 5px 0px 5px;
+	font-size: 20px;
+	}
+	
+	
+#price {
+	color: #800000;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.item {
+	width: 300px;
+	height: 450px;
+}
+
+h1 {
+	font-size: 40px;
+}
