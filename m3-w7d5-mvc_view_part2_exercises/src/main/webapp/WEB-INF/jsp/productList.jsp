@@ -10,21 +10,15 @@
     <link rel="stylesheet" href="css/list.css" />
 </head>
 <body>
-    <header>
-        <h1>MVC Exercises - Views Part 2: Models</h1>        
-    </header>
-    <nav>
-        <ul>
-            <li><a href="productTable">Product Table</a></li>
-            <li><a href="productTiles">Product Tiles</a></li>
-        </ul>
-        
-    </nav>
+<c:import url="header.jsp"/>
     <section id="main-content">
     <h1 class = "titleList">Toy Department</h1>
     	<c:forEach var="product" items="${requestScope.productList}">
 	    	<div class = "item">
+	    		<a href="/mvc-views-part2-exercises/productDetail?productId=${product.productId}">
 		    		<img id="listImage" src = "img/${product.imageName}"/>
+		    		</a>
+		    		
 		    		<div id="titleAndSeller">
 		    			<h2 class = "inline"> 
 		    			<c:out value="${product.name}" />

@@ -10,16 +10,7 @@
     <link rel="stylesheet" href="css/table.css" />
 </head>
 <body>
-    <header>
-        <h1>MVC Exercises - Views Part 2: Models</h1>        
-    </header>
-    <nav>
-        <ul>
-            <li><a href="productList">Product List</a></li>
-            <li><a href="productTiles">Product Tiles</a></li>
-        </ul>
-        
-    </nav>
+    <c:import url="header.jsp"/>
     <section id="main-content">
     <h1>Toy Department</h1>
     <table id="headings">
@@ -51,7 +42,9 @@
 	      		<table>
 	      			<tr>
 	      			  <td>
+	      			  	<a href="/mvc-views-part2-exercises/productDetail?productId=${product.productId}">
 		      			  <img id="image" src = "img/${product.imageName}"/>
+		      			  </a>
 		      			  <c:if test= "${product.topSeller}">
 		    				<p class = "inline red">Best Seller!</p>
 		    			  </c:if>
