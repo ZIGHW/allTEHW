@@ -17,4 +17,11 @@ textarea {
 }
 
 
+tr td {
+  border-bottom:1pt solid black;
+}
+
+#custTable {
+	width: 800px;
+}
 
