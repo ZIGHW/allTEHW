@@ -1,5 +1,5 @@
 ﻿
-function sumDouble(x, y) {
+const sumDouble = (x, y) =>{
     if (x === y) {
         return (2 * (x * y))
     } else {
@@ -10,12 +10,12 @@ function sumDouble(x, y) {
 const hasTeen = (x, y, z) => ! ([x, y, z].filter(c => (c >= 13 && c <= 19)).length === 0);
 
 
-function lastDigit(x, y) {
+const lastDigit = (x, y)  =>{
   var arr = [x.toString(), y.toString()].map(z => z[z.length - 1]);
   return (arr[0] === arr[1]);
 }
 
-function seeColor(x, y){
+const seeColor = (x, y) =>{
     if (x.substring(0, 3) === 'red') {
         return 'red';
     } else if (x.substring(0,4) === "blue"){
@@ -28,9 +28,8 @@ const middleThree = (x) => x.substring(x.length/2 - 1, x.length/2 + 2);
 
 const frontAgain = (x) => (x.substring(0, 2) === x.substring(x.length - 2, x.length));
 
-function alarmClock(x, y) {
+const alarmClock = (x, y) => {
     days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
     if (y === true){
         if (x === 0 || x === 6) {
             return days[x] + " off";
@@ -38,7 +37,6 @@ function alarmClock(x, y) {
             return days[x] + " 10:00"
         } 
     }
-
     if (x === 0 || x === 6) {
         return days[x] + " 10:00";
     } else {
