@@ -1,6 +1,9 @@
 ﻿/// <reference path="../jquery-3.1.1.js" />
 //Locate all <div> elements and add the 'president' class.
+
+console.log("ok");
 function presentialDivs() {
+	console.log("ok");
 	$('#presidents div').addClass('president');
 
 }
