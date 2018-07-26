@@ -5,7 +5,9 @@
 <h2>Complete your checkout</h2>
 <div id="errorSummary">
 	<h3>You have the following errors: </h3>
-	<ul id="errors"></ul>
+	<ul id="errors">
+	
+    </ul>
 </div>
  
  <c:url var="formAction" value="/store/checkout" />

@@ -91,16 +91,61 @@ $("#checkout").validate({
       },
       CreditCardNumber: {
           required: true,
+          minlength: 15,
+          maxlength: 16,
+          number:true,
       },
       ExpirationDate: {
           required: true,
       },
     },
     messages: {
+    	 BillingAddress1: {
+    	 	required: "The billing address is required"
+    	 },
+    	
+    	 BillingCity: {
+            required: "Billing city is required",
+		 },
+		 BillingState: {
+		     required: "Billing state is required",
+		 },
+		 BillingPostalCode: {
+		     required: "Billing postal code is required",
+		 },
+		 ShippingAddress1: {
+		     required: "Shipping Address is required",
+		 },
+		 ShippingCity: {
+		     required: "Shipping city is required",
+		 },
+		 ShippingState: {
+		     required: "Shipping state is required",
+		 },
+		 ShippingPostalCode: {
+		     required: "Shipping postal code is required",
+		 },
+		 NameOnCard: {
+		     required: "Name on card is required",
+		 },
+		 CreditCardNumber: {
+		     required: "Credit card number is required",
+		     minlength: "Card number needs to be more than 14 digits",
+		     maxlength: "Card number needs to be less than 17 digits",
+		     number: "Card number can only contain numbers"
+		 },
+		 ExpirationDate: {
+		     required: "Expiration date is required",
+		 },
+		
+
        
     },
     errorClass: "error",
-    validClass: "valid"
+    validClass: "valid",
+    errorContainer: $('#errorSummary'),
+    errorLabelContainer: $('#errorSummary #errors'),
+    wrapper: 'li'
 
 
 });
@@ -110,9 +155,3 @@ $("#checkout").validate({
 $.validator.addMethod("dotGovEmail", function(value, index) {
 	   return value.toLowerCase().endsWith(".gov");
 	}, "Needs to be a government email address");
-
-
-    // Email address - required
-    // Email address - .gov only (BONUS)
-    // Password - required, length 8 or more
-    // ConfirmPassword
