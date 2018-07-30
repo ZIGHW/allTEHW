@@ -1,0 +1,17 @@
+.transparent-white {
+    background: transparent !important;
+    color: white;
+} 
+
+.no-padding {
+    padding: 0px !important;
+}
+
+.hero {
+    background-image: url("img/te_present_1600x1060.jpg");
+    background-position: center;
+}
+
+.learn-more {
+    margin: 150px 0px 20px 0px
+}

@@ -15,16 +15,22 @@ $(document).ready(function () {
 	}
 	})
 	
-	$('#shipping-info input').click(function(){
-		let shippingCost = parseFloat($(this).data('cost'));
+	$('#shipping-info input').click(function(e){
+		let shippingCost = parseFloat($(e.target).data('cost'));
 		$('#shipping span').text("$" + shippingCost);
 		
-		let subTotal = parseFloat($('#subtotal .price').text().slice(1, -1));
-		let tax = parseFloat($('#tax .price').text().slice(1, -1));
-		let grandTotal = (tax + subTotal + shippingCost).toFixed(2);
-		let strgrandTotal = ( "$" + grandTotal);
-		$('#grandtotal .price').text(strgrandTotal);
+		calculateGrandTotal();
 	})
 	
 	
 });
+
+const calculateGrandTotal = () => {
+	let shippingCost = parseFloat($('#shipping .price').text().slice(1, -1));
+	let subTotal = parseFloat($('#subtotal .price').text().slice(1, -1));
+	let tax = parseFloat($('#tax .price').text().replace("$", ""));
+	console.log(tax);
+	let grandTotal = (tax + subTotal + shippingCost).toFixed(2);
+	let strgrandTotal = ( "$" + grandTotal);
+	$('#grandtotal .price').text(strgrandTotal);
+}
