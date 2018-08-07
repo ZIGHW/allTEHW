@@ -63,21 +63,21 @@ public class AuthenticationControllerTest {
 	@Test
 	public void redirects_to_user_dashboard_if_username_and_password_are_valid() {
 		when(userDAO.searchForUsernameAndPassword(anyString(), anyString())).thenReturn(true);
-		String viewName = controller.login("myUser", "password", model);
+		String viewName = controller.login("myUser", "password", model, session);
 		assertThat(viewName, equalTo("redirect:/users/myUser"));
 	}
 	
 	@Test
 	public void redirects_to_login_if_username_and_password_are_not_valid() {
 		when(userDAO.searchForUsernameAndPassword(anyString(), anyString())).thenReturn(false);
-		String viewName = controller.login("myUser", "password", model);
+		String viewName = controller.login("myUser", "password", model, session);
 		assertThat(viewName, equalTo("redirect:/login"));
 	}
 	
 	@Test
 	public void stores_username_in_cookie_after_successful_authentication() {
 		when(userDAO.searchForUsernameAndPassword(anyString(), anyString())).thenReturn(true);
-		controller.login("myUser", "password", model);
+		controller.login("myUser", "password", model, session);
 		Cookie cookie = new Cookie("userName", "myUser");
 		verify(response).addCookie(argThat(isEqualTo(cookie)));
 	}
@@ -85,7 +85,7 @@ public class AuthenticationControllerTest {
 	@Test
 	public void does_not_store_username_in_cookie_after_unsuccessful_authentication() {
 		when(userDAO.searchForUsernameAndPassword(anyString(), anyString())).thenReturn(false);
-		controller.login("myUser", "password", model);
+		controller.login("myUser", "password", model, session);
 		verify(response, never()).addCookie(any(Cookie.class));
 	}
 	

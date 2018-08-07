@@ -1,6 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
+<c: url var="pwValidator" value="/passwordValidation.js"/>
+<script src="${pwValidator}"> </script>
 
 <script type="text/javascript">
 	$(document).ready(function () {
@@ -12,7 +14,10 @@
 					required : true
 				},
 				password : {
-					required : true
+					required : true,
+					minLength:10,
+					maxLength: 128,
+					complexPassword: true
 				},
 				confirmPassword : {
 					required : true,		
