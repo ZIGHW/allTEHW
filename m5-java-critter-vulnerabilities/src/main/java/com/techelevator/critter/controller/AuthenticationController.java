@@ -30,8 +30,12 @@ public class AuthenticationController {
 	
 	@RequestMapping(path="/login", method=RequestMethod.POST)
 	public String login(@RequestParam String userName, 
+<<<<<<< HEAD
 						@RequestParam String password,
 						@RequestParam(required=false) String destination,
+=======
+						@RequestParam String password, 
+>>>>>>> a70fb3f6b75f7c1850e6038d7bea6f64ad30d776
 						ModelMap model,
 						HttpSession session) {
 		if(userDAO.searchForUsernameAndPassword(userName, password)) {
