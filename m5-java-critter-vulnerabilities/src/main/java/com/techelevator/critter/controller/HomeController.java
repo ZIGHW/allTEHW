@@ -28,7 +28,6 @@ public class HomeController {
 	
 	@RequestMapping(path="/delete", method=RequestMethod.POST)
 	public String deleteMessage(@RequestParam String username, @RequestParam String message_id, @RequestParam String currentUser) {
-		System.out.println("entered delete mapping");
 		if(username.equals(currentUser)) {
 			messageDAO.deleteMessage(message_id);
 		}

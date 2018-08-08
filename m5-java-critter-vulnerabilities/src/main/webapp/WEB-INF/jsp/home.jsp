@@ -9,8 +9,8 @@
 			<c:url var="messageHref" value="/messages">
 				<c:param name="userName" value="${message.fromUsername}" />
 			</c:url>
-			<span class="username"><a href="${messageHref}">${message.fromUsername}</a></span>
-			<span class="message-text">${message.text}</span>
+			<span class="username"><a href="${messageHref}"><c:out value="${message.fromUsername}"/></a></span>
+			<span class="message-text"><c:out value = "${message.text}" /></span>
 			<time class="timeago" datetime="${message.createTime}">${message.createTime}</time>
 			<c:if test = "${message.fromUsername.equals(sessionScope.currentUser)}">
 				<form action="delete" method="POST">
